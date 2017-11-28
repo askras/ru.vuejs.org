@@ -477,7 +477,7 @@
         
         
         <li>
-            <a href="/v2/guide/transitions.html" class="sidebar-link">Анимирование списков и появления/исчезнования</a>
+            <a href="/v2/guide/transitions.html" class="sidebar-link">Анимирование списков и появления/исчезновения</a>
         </li>
     
         
@@ -847,7 +847,7 @@
 <p><img src="/images/data.png" alt="Цикл реактивности"></p>
 <h2 id="Особенности-отслеживания-изменений"><a href="#Особенности-отслеживания-изменений" class="headerlink" title="Особенности отслеживания изменений"></a>Особенности отслеживания изменений</h2><p>В силу ограничений современного JavaScript (и отказа от <code>Object.observe</code>), Vue <strong>не может отследить добавление или удаление свойства объекта</strong>. Чтобы поле стало реактивным, Vue превращает его в пару геттер/сеттер в ходе инициализации экземпляра. Поэтому все поля должны изначально быть заданы в объекте <code>data</code>. Например:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  data: &#123;</div><div class="line">    a: <span class="number">1</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// теперь `vm.a` — реактивное поле</span></div><div class="line"></div><div class="line">vm.b = <span class="number">2</span></div><div class="line"><span class="comment">// `vm.b` НЕ реактивно</span></div></pre></td></tr></table></figure>
-<p>Во Vue нельзя динамически добавлять новые корневые реактивные свойства в уже существующий экземпляр. Тем не менее, можно добавить реактивное свойство во вложенные объекты, используя метод <code>Vue.set(object, key, value)</code>:</p>
+<p>В Vue нельзя динамически добавлять новые корневые реактивные свойства в уже существующий экземпляр. Тем не менее, можно добавить реактивное свойство во вложенные объекты, используя метод <code>Vue.set(object, key, value)</code>:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.set(vm.someObject, <span class="string">'b'</span>, <span class="number">2</span>)</div></pre></td></tr></table></figure>
 <p>Также можно использовать метод экземпляра <code>vm.$set</code>, который представляет собой псевдоним к глобальному <code>Vue.set</code>:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.someObject, <span class="string">'b'</span>, <span class="number">2</span>)</div></pre></td></tr></table></figure>
