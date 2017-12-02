@@ -265,7 +265,10 @@
                     <img src="/images/stdlib.png">
                 </a>
                 <a href="http://tooltwist.com/" target="_blank" class="logo">
-                  <img src="/images/tooltwist.png">
+                  <img src="/images/tooltwist.png" style="margin-top:-5px">
+                </a>
+                <a href="https://www.infinitynewtab.com/donate/index.html" target="_blank" class="logo">
+                  <img src="/images/infinitynewtab.png">
                 </a>
             </div>
             <a class="become-backer" href="/support-vuejs">
@@ -449,7 +452,7 @@
 </li>
 <li><p><strong>Использование:</strong></p>
 <p>Выполняет функцию <code>callback</code> при следующем цикле обновления DOM. Вызывайте сразу после изменения данных, чтобы работать с обновлённым DOM.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// изменение данных</span></div><div class="line">vm.msg = <span class="string">'Привет'</span></div><div class="line"><span class="comment">// DOM ещё не обновлён</span></div><div class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// теперь DOM обновлён</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// изменение данных</span></div><div class="line">vm.msg = <span class="string">'Привет'</span></div><div class="line"><span class="comment">// DOM ещё не обновлён</span></div><div class="line">Vue.nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// теперь DOM обновлён</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// использование с Promise (добавлено в 2.1.0+, см. примечание ниже)</span></div><div class="line">Vue.nextTick()</div><div class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// DOM обновлён</span></div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
 <blockquote>
 <p>Добавлено в версии 2.1.0+: возвращает <code>Promise</code>, если окружение их поддерживает и коллбэк не указан. Обратите внимание, что Vue не поставляется с полифиллом для <code>Promise</code>. Поэтому при необходимости поддержки браузеров, которые не поддерживают их нативно (например, IE), вам придётся предоставить полифилл самостоятельно.</p>
 </blockquote>

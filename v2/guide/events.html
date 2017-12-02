@@ -265,7 +265,10 @@
                     <img src="/images/stdlib.png">
                 </a>
                 <a href="http://tooltwist.com/" target="_blank" class="logo">
-                  <img src="/images/tooltwist.png">
+                  <img src="/images/tooltwist.png" style="margin-top:-5px">
+                </a>
+                <a href="https://www.infinitynewtab.com/donate/index.html" target="_blank" class="logo">
+                  <img src="/images/infinitynewtab.png">
                 </a>
             </div>
             <a class="become-backer" href="/support-vuejs">
@@ -971,8 +974,8 @@ new Vue({
 <h3 id="Модификатор-exact"><a href="#Модификатор-exact" class="headerlink" title="Модификатор .exact"></a>Модификатор <code>.exact</code></h3><blockquote>
 <p>Добавлено в версии 2.5.0+</p>
 </blockquote>
-<p>Модификатор <code>.exact</code> должен использоваться в комбинации с другими системными модификаторами, чтобы указать, что для активации обработчика должна быть нажата точная комбинация модификаторов.</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- это сработает даже если Alt или Shift также нажаты --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.ctrl</span>=<span class="string">"onClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- это сработает только когда нажат Ctrl --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.ctrl.exact</span>=<span class="string">"onCtrlClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Модификатор <code>.exact</code> позволяет контролировать точную комбинацию системных модификаторов, необходимых для запуска события.</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- это сработает даже если Alt или Shift также нажаты --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.ctrl</span>=<span class="string">"onClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- это сработает только когда нажат Ctrl и не нажаты никакие другие клавиши --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.ctrl.exact</span>=<span class="string">"onCtrlClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- это сработает только когда не нажаты никакие системные модификаторы --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.exact</span>=<span class="string">"onClick"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
 <h3 id="Модификаторы-клавиш-мыши"><a href="#Модификаторы-клавиш-мыши" class="headerlink" title="Модификаторы клавиш мыши"></a>Модификаторы клавиш мыши</h3><blockquote>
 <p>Добавлено в версии 2.2.0+</p>
 </blockquote>
