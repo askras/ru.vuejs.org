@@ -878,14 +878,14 @@ new Vue({
 <li><p><code>unbind</code>: вызывается однократно, при отвязывании директивы от элемента.</p>
 </li>
 </ul>
-<p>В следующем разделе мы рассмотрим аргументы, передаваемые в эти хуки (а именно, <code>el</code>, <code>binding</code>, <code>vnode</code> и <code>oldVnode</code>).</p>
+<p>В следующем разделе мы рассмотрим аргументы, передаваемые в эти хуки (а именно: <code>el</code>, <code>binding</code>, <code>vnode</code> и <code>oldVnode</code>).</p>
 <h2 id="Аргументы-хуков"><a href="#Аргументы-хуков" class="headerlink" title="Аргументы хуков"></a>Аргументы хуков</h2><p>В хуки передаются следующие параметры:</p>
 <ul>
 <li><code>el</code>: Элемент, к которому привязана директива. Можно использовать для прямых манипуляций с DOM.</li>
 <li><code>binding</code>: Объект, содержащий следующие свойства:<ul>
 <li><code>name</code>: Название директивы, без указания префикса <code>v-</code>.</li>
 <li><code>value</code>: Значение, переданное в директиву. Например, для <code>v-my-directive=&quot;1 + 1&quot;</code> значением будет <code>2</code>.</li>
-<li><code>oldValue</code>: Предыдущее переданное в директиву значение. Доступно только для хуков <code>update</code> и <code>componentUpdated</code> и передаётся независимо от того, произошло ли в действительности его изменение.</li>
+<li><code>oldValue</code>: Предыдущее переданное в директиву значение. Доступно только для хуков <code>update</code> и <code>componentUpdated</code>, и передаётся независимо от того, произошло ли в действительности его изменение.</li>
 <li><code>expression</code>: Выражение-строка, переданное в директиву. Например, для <code>v-my-directive=&quot;1 + 1&quot;</code> это будет <code>&quot;1 + 1&quot;</code>.</li>
 <li><code>arg</code>: Аргумент, переданный в директиву, в случае его наличия. Например, для <code>v-my-directive:foo</code> это будет <code>&quot;foo&quot;</code>.</li>
 <li><code>modifiers</code>: Объект, содержащий модификаторы, если они есть. Например, для <code>v-my-directive.foo.bar</code>, объектом модификаторов будет <code>{ foo: true, bar: true }</code>.</li>
@@ -894,7 +894,7 @@ new Vue({
 <li><code>vnode</code>: Виртуальный элемент, созданный компилятором Vue. См. <a href="../api/#Интерфейс-VNode">VNode API</a> для подробностей.</li>
 <li><code>oldVnode</code>: Предыдущий виртуальный элемент, доступный только для хуков <code>update</code> и <code>componentUpdated</code>.</li>
 </ul>
-<p class="tip">Все аргументы кроме <code>el</code> следует понимать как только для чтения и никогда не изменять их. В случае необходимости передать информацию между хуками рекомендуем воспользоваться <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset" target="_blank" rel="external">dataset</a>.</p>
+<p class="tip">Все аргументы, кроме <code>el</code>, следует понимать как только для чтения и никогда не изменять их. В случае необходимости передать информацию между хуками рекомендуем воспользоваться <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset" target="_blank" rel="external">dataset</a>.</p>
 
 <p>Пример пользовательской директивы, использующей некоторые из описанных возможностей:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"hook-arguments-example"</span> <span class="attr">v-demo:foo.a.b</span>=<span class="string">"message"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
