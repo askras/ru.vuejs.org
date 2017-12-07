@@ -844,7 +844,7 @@
       <h1>Миграция с Vue Router 0.7.x</h1>
     
     <blockquote>
-<p>Только Vue Router 2 совместим с Vue 2, поэтому, если вы обновляете Vue, вы должны также обновить и Vue Router. Поэтому мы включили описание процесса миграции в основную документацию. Для подробной инструкции по использованию новой версии Vue Router, обратитесь к документации <a href="https://router.vuejs.org/ru/" target="_blank" rel="external">Vue Router</a>.</p>
+<p>Только Vue Router 2 совместим с Vue 2, поэтому если вы обновляете Vue, вы должны также обновить и Vue Router. Поэтому мы включили описание процесса миграции в основную документацию. Для подробной инструкции по использованию новой версии Vue Router, обратитесь к документации <a href="https://router.vuejs.org/ru/" target="_blank" rel="external">Vue Router</a>.</p>
 </blockquote>
 <h2 id="Инициализация-роутера"><a href="#Инициализация-роутера" class="headerlink" title="Инициализация роутера"></a>Инициализация роутера</h2><h3 id="router-start-заменено"><a href="#router-start-заменено" class="headerlink" title="router.start заменено"></a><code>router.start</code> <sup>заменено</sup></h3><p>Более нет никакого специального API для инициализации приложения, с использованием Vue Router. Это означает, что вместо:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">router.start(&#123;</div><div class="line">  template: <span class="string">'&lt;router-view&gt;&lt;/router-view&gt;'</span></div><div class="line">&#125;, <span class="string">'#app'</span>)</div></pre></td></tr></table></figure>
@@ -953,7 +953,7 @@
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">миграционного помощника</a> в вашем проекте, чтобы найти использование директивы <code>v-link-active</code>.</p>
 </div>
 
-<h2 id="Programmatic-Navigation"><a href="#Programmatic-Navigation" class="headerlink" title="Programmatic Navigation"></a>Programmatic Navigation</h2><h3 id="router-go-изменено"><a href="#router-go-изменено" class="headerlink" title="router.go изменено"></a><code>router.go</code> <sup>изменено</sup></h3><p>Для соответствия <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API" target="_blank" rel="external">HTML5 History API</a>, <code>router.go</code> теперь используется только для <a href="https://router.vuejs.org/ru/essentials/navigation.html#routergon" target="_blank" rel="external">навигации вперед/назад</a>, в то время как <a href="https://router.vuejs.org/ru/essentials/navigation.html#routerpushlocation" target="_blank" rel="external"><code>router.push</code></a> используется для перехода на конкретную страницу.</p>
+<h2 id="Programmatic-Navigation"><a href="#Programmatic-Navigation" class="headerlink" title="Programmatic Navigation"></a>Programmatic Navigation</h2><h3 id="router-go-изменено"><a href="#router-go-изменено" class="headerlink" title="router.go изменено"></a><code>router.go</code> <sup>изменено</sup></h3><p>Для соответствия <a href="https://developer.mozilla.org/ru/docs/Web/API/History_API" target="_blank" rel="external">HTML5 History API</a>, <code>router.go</code> теперь используется только для <a href="https://router.vuejs.org/ru/essentials/navigation.html#routergon" target="_blank" rel="external">навигации вперед/назад</a>, в то время как <a href="https://router.vuejs.org/ru/essentials/navigation.html#routerpushlocation" target="_blank" rel="external"><code>router.push</code></a> используется для перехода на конкретную страницу.</p>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
@@ -997,7 +997,7 @@
   <p>Запустите <a href="https://github.com/vuejs/vue-migration-helper" target="_blank" rel="external">миграционного помощника</a> в вашем проекте, чтобы найти использование опции <code>saveScrollPosition: true</code>.</p>
 </div>
 
-<h3 id="root-переименовано"><a href="#root-переименовано" class="headerlink" title="root переименовано"></a><code>root</code> <sup>переименовано</sup></h3><p>Переименовано в <code>base</code> для соответствия <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base" target="_blank" rel="external">HTML-эелементу <code>&lt;base&gt;</code></a>.</p>
+<h3 id="root-переименовано"><a href="#root-переименовано" class="headerlink" title="root переименовано"></a><code>root</code> <sup>переименовано</sup></h3><p>Переименовано в <code>base</code> для соответствия <a href="https://developer.mozilla.org/ru/docs/Web/HTML/Element/base" target="_blank" rel="external">HTML-эелементу <code>&lt;base&gt;</code></a>.</p>
 
 <div class="upgrade-path">
   <h4>Обновление</h4>
