@@ -360,7 +360,7 @@
 <blockquote>
 <p>В версии 2.2.0+, этот хук также отслеживает ошибки в хуках жизненного цикла компонентов. Кроме того, при установленном значении <code>undefined</code> захваченные ошибки будут зарегистрированы с помощью <code>console.error</code> вместо вызова сбоя приложения.</p>
 <p>В версии 2.4.0+, этот хук также отслеживает ошибки, возникающие внутри пользовательских обработчиков событий Vue.</p>
-<p>Сервис отслеживания ошибок <a href="https://sentry.io" target="_blank" rel="external">Sentry</a> предлагает <a href="https://sentry.io/for/vue/" target="_blank" rel="external">официальную интеграцию</a> с использованием этого свойства.</p>
+<p>Сервисы отслеживания ошибок <a href="https://sentry.io/for/vue/" target="_blank" rel="external">Sentry</a> и <a href="https://docs.bugsnag.com/platforms/browsers/vue/" target="_blank" rel="external">Bugsnag</a> предлагают официальную интеграцию с использованием этого свойства.</p>
 </blockquote>
 </li>
 </ul>
@@ -585,7 +585,7 @@
 <p>Компилирует строковый шаблон в <code>render</code>-функцию. <strong>Доступно только в полной сборке.</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> res = Vue.compile(<span class="string">'&lt;div&gt;&lt;span&gt;&#123;&#123; msg &#125;&#125;&lt;/span&gt;&lt;/div&gt;'</span>)</div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  data: &#123;</div><div class="line">    msg: <span class="string">'hello'</span></div><div class="line">  &#125;,</div><div class="line">  render: res.render,</div><div class="line">  staticRenderFns: res.staticRenderFns</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/render-function.html">Render-функции</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/render-function.html">Render-функции и JSX</a></p>
 </li>
 </ul>
 <h3 id="Vue-version">Vue.version</h3>
@@ -727,7 +727,7 @@
 <p>Если компонент функциональный, вторым параметром передаётся <code>context</code>, дающий доступ к контекстным данным, так как функциональные компоненты не имеют экземпляров.</p>
 <p class="tip">Функция в опции <code>render</code> имеет приоритет над <code>render</code>-функцией, скомпилированной из шаблона определённого в опции <code>template</code>, а также над шаблоном указанным в DOM-элементе, к которому будет выполняться монтирование, через опцию <code>el</code>.</p>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/render-function.html">Render-функции</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/render-function.html">Render-функции и JSX</a></p>
 </li>
 </ul>
 <h3 id="renderError"><a href="#renderError" class="headerlink" title="renderError"></a>renderError</h3><blockquote>
@@ -743,7 +743,7 @@
 <li><p><strong>Пример:</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  render (h) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'oops'</span>)</div><div class="line">  &#125;,</div><div class="line">  renderError (h, err) &#123;</div><div class="line">    <span class="keyword">return</span> h(<span class="string">'pre'</span>, &#123; <span class="attr">style</span>: &#123; <span class="attr">color</span>: <span class="string">'red'</span> &#125;&#125;, err.stack)</div><div class="line">  &#125;</div><div class="line">&#125;).$mount(<span class="string">'#app'</span>)</div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/render-function.html">Render-функции</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/render-function.html">Render-функции и JSX</a></p>
 </li>
 </ul>
 <h2 id="Опции-—-хуки-жизненного-цикла"><a href="#Опции-—-хуки-жизненного-цикла" class="headerlink" title="Опции — хуки жизненного цикла"></a>Опции — хуки жизненного цикла</h2><p>Хук (hook — буквально “крючок”) — функция, вызываемая в определённый момент жизненного цикла сущности, например, непосредственно перед или после создания компонента Vue. Хук позволяет расширить или изменить стандартное поведение на пользовательское.</p>
@@ -1390,7 +1390,7 @@
 <li><p><strong>См. также:</strong></p>
 <ul>
 <li><a href="#Vue-nextTick">Vue.nextTick</a></li>
-<li><a href="../guide/reactivity.html#Асинхронная-очередь-обновлений">Очередь асинхронных обновлений</a></li>
+<li><a href="../guide/reactivity.html#Асинхронная-очередь-обновлений">Асинхронная очередь обновлений</a></li>
 </ul>
 </li>
 </ul>
@@ -1490,7 +1490,7 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(val, key) in object"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"(val, key, index) in object"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>По умолчанию <code>v-for</code> будет пытаться обновить элементы “на месте”, не перемещая их. Если вам нужно, чтобы элементы перемещались, сохраняя явную упорядоченность, укажите атрибут <code>key</code>:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></div><div class="line">  &#123;&#123; item.text &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p class="tip">При совместном использовании <code>v-if</code> и <code>v-for</code>, <code>v-for</code> имеет более высокий приоритет. Подробности на странице <a href="../guide/list.html#v-for-и-v-if">рендеринга списков</a>.</p>
+<p class="tip">При совместном использовании <code>v-if</code> и <code>v-for</code>, <code>v-for</code> имеет более высокий приоритет. Подробности на странице <a href="../guide/list.html#v-for-и-v-if&quot;">рендеринга списков</a>.</p>
 
 <p>Использование <code>v-for</code> подробно описано в секции руководства по ссылке ниже.</p>
 </li>
@@ -1570,7 +1570,7 @@
 <li><p><strong>См. также:</strong></p>
 <ul>
 <li><a href="../guide/class-and-style.html">Работа с классами и стилями</a></li>
-<li><a href="../guide/components.html#Входные-параметры">Компоненты — входные параметры компонентов</a></li>
+<li><a href="../guide/components.html#Входные-параметры">Компоненты — входные параметры</a></li>
 <li><a href="../guide/components.html#Модификатор-sync">Компоненты — модификатор <code>.sync</code></a></li>
 </ul>
 </li>
@@ -1760,7 +1760,7 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- простой элемент --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"ok"</span>&gt;</span>переключаемое содержимое<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- динамический компонент --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">name</span>=<span class="string">"fade"</span> <span class="attr">mode</span>=<span class="string">"out-in"</span> <span class="attr">appear</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- хук на событие --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"transition-demo"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">transition</span> @<span class="attr">after-enter</span>=<span class="string">"transitionComplete"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-show</span>=<span class="string">"ok"</span>&gt;</span>переключаемое содержимое<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">transition</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  ...</div><div class="line">  methods: &#123;</div><div class="line">    transitionComplete: <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>&#123;</div><div class="line">      <span class="comment">// сделайте что-нибудь с переданным элементом DOM ...</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  ...</div><div class="line">&#125;).$mount(<span class="string">'#transition-demo'</span>)</div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/transitions.html">Анимационные эффекты переходов: появление, исчезновение и списки</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/transitions.html">Анимирование списков и появления/исчезновения</a></p>
 </li>
 </ul>
 <h3 id="transition-group"><a href="#transition-group" class="headerlink" title="transition-group"></a>transition-group</h3><ul>
@@ -1782,7 +1782,7 @@
 <p>Анимации перехода реализованы с помощью CSS-трансформаций. Когда позиция потомка изменилась после обновления, ему будет добавлен CSS-класс (автоматически сгенерированный из атрибута <code>name</code>, или же явно указанный в атрибуте <code>move-class</code>). Если после применения этого класса свойство <code>transform</code> можно будет анимировать, элемент будет с плавным переходом переведён туда, где он должен быть с помощью <a href="https://aerotwist.com/blog/flip-your-animations/" target="_blank" rel="external">техники FLIP</a>.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transition-group</span> <span class="attr">tag</span>=<span class="string">"ul"</span> <span class="attr">name</span>=<span class="string">"slide"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span>&gt;</span></div><div class="line">    &#123;&#123; item.text &#125;&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transition-group</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>См. также:</strong> <a href="../guide/transitions.html">Анимационные эффекты переходов: появление, исчезновение и списки</a></p>
+<li><p><strong>См. также:</strong> <a href="../guide/transitions.html">Анимирование списков и появления/исчезновения</a></p>
 </li>
 </ul>
 <h3 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a>keep-alive</h3><ul>
