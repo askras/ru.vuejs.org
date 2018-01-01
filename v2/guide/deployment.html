@@ -70,8 +70,12 @@
 
           ga('send', 'pageview');
         </script>
+
+        <!-- vimeo analytics -->
+        <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
-    <body class="docs">        <div id="mobile-bar" >
+    <body class="docs">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -143,9 +147,9 @@
   <a class="nav-link">Поддержать Vue</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
-      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин</a></li>
-      <li><a href="https://opencollective.com/vuejs" target="_blank" class="nav-link">Поддержать нас на OpenCollective</a></li>
-      <li><a href="https://www.patreon.com/evanyou" target="_blank" class="nav-link">Поддержать Evan на Patreon</a></li>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Повторяющиеся взносы</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
     </ul></li>
   </ul>
 </li>
@@ -236,9 +240,9 @@
   <a class="nav-link">Поддержать Vue</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
-      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин</a></li>
-      <li><a href="https://opencollective.com/vuejs" target="_blank" class="nav-link">Поддержать нас на OpenCollective</a></li>
-      <li><a href="https://www.patreon.com/evanyou" target="_blank" class="nav-link">Поддержать Evan на Patreon</a></li>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Повторяющиеся взносы</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
     </ul></li>
   </ul>
 </li>
@@ -846,31 +850,31 @@
     <h2 id="Включение-режима-production"><a href="#Включение-режима-production" class="headerlink" title="Включение режима production"></a>Включение режима production</h2><p>В процессе разработки Vue предусматривает множество полезных предупреждений, чтобы помочь разобраться с типичными ошибками и подводными камнями. Однако в production эти предупреждения бессмысленны и лишь увеличивают размер вашего приложения. К тому же, часть проверок для этих предупреждений добавит небольшие затраты к времени выполнения и поэтому должны быть исключены в режиме production.</p>
 <h3 id="Без-использования-систем-сборки"><a href="#Без-использования-систем-сборки" class="headerlink" title="Без использования систем сборки"></a>Без использования систем сборки</h3><p>Если вы используете полную сборку, т.е. напрямую подключаете Vue через тег <code>&lt;script&gt;</code> без использования каких-либо систем сборки, удостоверьтесь что используете минифицированную версию (<code>vue.min.js</code>) для production. Обе версии можно найти <a href="installation.html#Подключение-через-lt-script-gt">на странице установки</a>.</p>
 <h3 id="С-использованием-систем-сборки"><a href="#С-использованием-систем-сборки" class="headerlink" title="С использованием систем сборки"></a>С использованием систем сборки</h3><p>При использовании систем сборки, таких как Webpack или Browserify, режим production определяется по значению <code>process.env.NODE_ENV</code> внутри исходного кода Vue. По умолчанию используется режим для разработки. Обе системы сборки предоставляют возможности для переопределения этой переменной — для включения режима production во Vue и удаления всех проверок и предупреждений на этапе сборки. Все шаблоны <code>vue-cli</code> уже настроены для вас, но было бы полезно знать, как это делается:</p>
-<h4 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h4><p>Используйте плагин Webpack <a href="https://webpack.js.org/plugins/define-plugin/" target="_blank" rel="external">DefinePlugin</a> для установки переменных окружения. Это позволит UglifyJS на этапе сборки удалить все предупреждения. Пример конфигурации:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  plugins: [</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</div><div class="line">      <span class="string">'process.env'</span>: &#123;</div><div class="line">        NODE_ENV: <span class="string">'"production"'</span></div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h4><p>Используйте плагин Webpack <a href="https://webpack.js.org/plugins/define-plugin/" target="_blank" rel="noopener">DefinePlugin</a> для установки переменных окружения. Это позволит UglifyJS на этапе сборки удалить все предупреждения. Пример конфигурации:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">      <span class="string">'process.env'</span>: &#123;</span><br><span class="line">        NODE_ENV: <span class="string">'"production"'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Browserify"><a href="#Browserify" class="headerlink" title="Browserify"></a>Browserify</h4><ul>
 <li><p>Запустите сборку, указав в команде переменную <code>NODE_ENV</code> с значением <code>&quot;production&quot;</code>. Это позволит <code>vueify</code> исключить код для горячей замены модулей, а также код относящийся к разработке.</p>
 </li>
-<li><p>Примените глобальную трансформацию <a href="https://github.com/hughsk/envify" target="_blank" rel="external">envify</a> к вашей сборке. Это позволит минификатору удалить все предупреждения из исходного кода Vue, обёрнутые в условия проверки переменной окружения. Например:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">NODE_ENV=production browserify -g envify -e main.js | uglifyjs -c -m &gt; build.js</div></pre></td></tr></table></figure>
+<li><p>Примените глобальную трансформацию <a href="https://github.com/hughsk/envify" target="_blank" rel="noopener">envify</a> к вашей сборке. Это позволит минификатору удалить все предупреждения из исходного кода Vue, обёрнутые в условия проверки переменной окружения. Например:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">NODE_ENV=production browserify -g envify -e main.js | uglifyjs -c -m &gt; build.js</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Или используйте <a href="https://github.com/hughsk/envify" target="_blank" rel="external">envify</a> вместе с Gulp:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Используйте пользовательский модуль envify для указания переменных окружения</span></div><div class="line"><span class="keyword">var</span> envify = <span class="built_in">require</span>(<span class="string">'envify/custom'</span>)</div><div class="line"></div><div class="line">browserify(browserifyOptions)</div><div class="line">  .transform(vueify),</div><div class="line">  .transform(</div><div class="line">    <span class="comment">// Порядок необходим для обработки файлов node_modules</span></div><div class="line">    &#123; <span class="attr">global</span>: <span class="literal">true</span> &#125;,</div><div class="line">    envify(&#123; <span class="attr">NODE_ENV</span>: <span class="string">'production'</span> &#125;)</div><div class="line">  )</div><div class="line">  .bundle()</div></pre></td></tr></table></figure>
+<li><p>Или используйте <a href="https://github.com/hughsk/envify" target="_blank" rel="noopener">envify</a> вместе с Gulp:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Используйте пользовательский модуль envify для указания переменных окружения</span></span><br><span class="line"><span class="keyword">var</span> envify = <span class="built_in">require</span>(<span class="string">'envify/custom'</span>)</span><br><span class="line"></span><br><span class="line">browserify(browserifyOptions)</span><br><span class="line">  .transform(vueify),</span><br><span class="line">  .transform(</span><br><span class="line">    <span class="comment">// Порядок необходим для обработки файлов node_modules</span></span><br><span class="line">    &#123; <span class="attr">global</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">    envify(&#123; <span class="attr">NODE_ENV</span>: <span class="string">'production'</span> &#125;)</span><br><span class="line">  )</span><br><span class="line">  .bundle()</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="Rollup"><a href="#Rollup" class="headerlink" title="Rollup"></a>Rollup</h4><p>Используйте <a href="https://github.com/rollup/rollup-plugin-replace" target="_blank" rel="external">rollup-plugin-replace</a>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> replace = <span class="built_in">require</span>(<span class="string">'rollup-plugin-replace'</span>)</div><div class="line"></div><div class="line">rollup(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">  plugins: [</div><div class="line">    replace(&#123;</div><div class="line">      <span class="string">'process.env.NODE_ENV'</span>: <span class="built_in">JSON</span>.stringify( <span class="string">'production'</span> )</div><div class="line">    &#125;)</div><div class="line">  ]</div><div class="line">&#125;).then(...)</div></pre></td></tr></table></figure>
+<h4 id="Rollup"><a href="#Rollup" class="headerlink" title="Rollup"></a>Rollup</h4><p>Используйте <a href="https://github.com/rollup/rollup-plugin-replace" target="_blank" rel="noopener">rollup-plugin-replace</a>:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> replace = <span class="built_in">require</span>(<span class="string">'rollup-plugin-replace'</span>)</span><br><span class="line"></span><br><span class="line">rollup(&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    replace(&#123;</span><br><span class="line">      <span class="string">'process.env.NODE_ENV'</span>: <span class="built_in">JSON</span>.stringify( <span class="string">'production'</span> )</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;).then(...)</span><br></pre></td></tr></table></figure>
 <h2 id="Прекомпиляция-шаблонов"><a href="#Прекомпиляция-шаблонов" class="headerlink" title="Прекомпиляция шаблонов"></a>Прекомпиляция шаблонов</h2><p>При использовании DOM в качестве шаблона или строковых шаблонов в JavaScript, компиляция в <code>render</code>-функцию будет выполняться на лету. Это достаточно быстро для большинства случаев, но если ваше приложение нуждается в максимальной производительности стоит этого избегать.</p>
 <p>Самый простой способ предварительной компиляции шаблонов — использовать <a href="single-file-components.html">однофайловые компоненты</a>. На этапе сборки проекта будет выполнена предварительная компиляция, поэтому результирующий код будет содержать только <code>render</code>-функции вместо сырых строковых шаблонов.</p>
-<p>Если вы используете Webpack и предпочитаете разделять JavaScript и файлы шаблонов, вы можете воспользоваться <a href="https://github.com/ktsn/vue-template-loader" target="_blank" rel="external">vue-template-loader</a>, который также преобразует файлы шаблонов в <code>render</code>-функции на JavaScript на этапе сборки.</p>
+<p>Если вы используете Webpack и предпочитаете разделять JavaScript и файлы шаблонов, вы можете воспользоваться <a href="https://github.com/ktsn/vue-template-loader" target="_blank" rel="noopener">vue-template-loader</a>, который также преобразует файлы шаблонов в <code>render</code>-функции на JavaScript на этапе сборки.</p>
 <h2 id="Извлечение-CSS-из-компонентов"><a href="#Извлечение-CSS-из-компонентов" class="headerlink" title="Извлечение CSS из компонентов"></a>Извлечение CSS из компонентов</h2><p>При использовании однофайловых компонентов, CSS из компонента будет динамически добавлен как тег <code>&lt;style&gt;</code> через JavaScript. Это немного увеличивает затраты времени выполнения, поэтому при использовании рендеринга на стороне сервера может привести к “мельканию неоформленного содержимого” (англ. flash of unstyled content — FOUC). Извлечение CSS из всех компонентов в один файл позволит избежать этой проблемы, а также добиться лучших результатов в минификации и кешировании CSS.</p>
 <p>Обратитесь к документации соответствующих инструментов для сборки, чтобы узнать как это реализовать:</p>
 <ul>
-<li><a href="https://vue-loader.vuejs.org/ru/configurations/extract-css.html" target="_blank" rel="external">Webpack + vue-loader</a> (в <code>vue-cli</code> с шаблоном webpack это уже настроено)</li>
-<li><a href="https://github.com/vuejs/vueify#css-extraction" target="_blank" rel="external">Browserify + vueify</a></li>
-<li><a href="https://vuejs.github.io/rollup-plugin-vue/#/en/2.3/?id=custom-handler" target="_blank" rel="external">Rollup + rollup-plugin-vue</a></li>
+<li><a href="https://vue-loader.vuejs.org/ru/configurations/extract-css.html" target="_blank" rel="noopener">Webpack + vue-loader</a> (в <code>vue-cli</code> с шаблоном webpack это уже настроено)</li>
+<li><a href="https://github.com/vuejs/vueify#css-extraction" target="_blank" rel="noopener">Browserify + vueify</a></li>
+<li><a href="https://vuejs.github.io/rollup-plugin-vue/#/en/2.3/?id=custom-handler" target="_blank" rel="noopener">Rollup + rollup-plugin-vue</a></li>
 </ul>
-<h2 id="Отслеживание-ошибок-времени-выполнения"><a href="#Отслеживание-ошибок-времени-выполнения" class="headerlink" title="Отслеживание ошибок времени выполнения"></a>Отслеживание ошибок времени выполнения</h2><p>Если при рендеринге компонента произойдёт ошибка, она будет передана в глобальную функцию <code>Vue.config.errorHandler</code>, если таковая была указана. Использование этого хука в связке с сервисом отслеживания ошибок, например с <a href="https://sentry.io" target="_blank" rel="external">Sentry</a>, может быть неплохой идеей — тем более, что <a href="https://sentry.io/for/vue/" target="_blank" rel="external">интеграция с Vue официально поддерживается</a>.</p>
+<h2 id="Отслеживание-ошибок-времени-выполнения"><a href="#Отслеживание-ошибок-времени-выполнения" class="headerlink" title="Отслеживание ошибок времени выполнения"></a>Отслеживание ошибок времени выполнения</h2><p>Если при рендеринге компонента произойдёт ошибка, она будет передана в глобальную функцию <code>Vue.config.errorHandler</code>, если таковая была указана. Использование этого хука в связке с сервисом отслеживания ошибок, например с <a href="https://sentry.io" target="_blank" rel="noopener">Sentry</a>, может быть неплохой идеей — тем более, что <a href="https://sentry.io/for/vue/" target="_blank" rel="noopener">интеграция с Vue официально поддерживается</a>.</p>
 
     
       <div class="guide-links">

@@ -70,8 +70,12 @@
 
           ga('send', 'pageview');
         </script>
+
+        <!-- vimeo analytics -->
+        <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
     </head>
-    <body class="docs">        <div id="mobile-bar" >
+    <body class="docs">
+        <div id="mobile-bar" >
             <a class="menu-button"></a>
             <a class="logo" href="/"></a>
         </div>
@@ -143,9 +147,9 @@
   <a class="nav-link">Поддержать Vue</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
-      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин</a></li>
-      <li><a href="https://opencollective.com/vuejs" target="_blank" class="nav-link">Поддержать нас на OpenCollective</a></li>
-      <li><a href="https://www.patreon.com/evanyou" target="_blank" class="nav-link">Поддержать Evan на Patreon</a></li>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Повторяющиеся взносы</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
     </ul></li>
   </ul>
 </li>
@@ -236,9 +240,9 @@
   <a class="nav-link">Поддержать Vue</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><ul>
-      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин</a></li>
-      <li><a href="https://opencollective.com/vuejs" target="_blank" class="nav-link">Поддержать нас на OpenCollective</a></li>
-      <li><a href="https://www.patreon.com/evanyou" target="_blank" class="nav-link">Поддержать Evan на Patreon</a></li>
+      <li><a href="/support-vuejs/#One-time-Donations" class="nav-link">Единоразовые пожертвования</a></li>
+      <li><a href="/support-vuejs/#Recurring-Pledges" target="_blank" class="nav-link">Повторяющиеся взносы</a></li>
+      <li><a href="https://vue.threadless.com" target="_blank" class="nav-link">Магазин футболок</a></li>
     </ul></li>
   </ul>
 </li>
@@ -843,29 +847,29 @@
     
       <h1>Плагины</h1>
     
-    <h2 id="Создание-плагина"><a href="#Создание-плагина" class="headerlink" title="Создание плагина"></a>Создание плагина</h2><p>Плагины обычно добавляют во Vue некоторый глобальный функционал. В явном виде область применения плагинов не определена. Вы можете создавать плагины нескольких различных типов:</p>
+    <h2 id="Создание-плагина"><a href="#Создание-плагина" class="headerlink" title="Создание плагина"></a>Создание плагина</h2><p>Плагины обычно добавляют во Vue некоторой глобальной функциональностью. В явном виде область применения плагинов не определена. Вы можете создавать плагины нескольких различных типов:</p>
 <ol>
-<li><p>Добавляющие глобальные методы и/или свойства, например <a href="https://github.com/karol-f/vue-custom-element" target="_blank" rel="external">vue-custom-element</a></p>
+<li><p>Добавляющие глобальные методы и/или свойства, например <a href="https://github.com/karol-f/vue-custom-element" target="_blank" rel="noopener">vue-custom-element</a></p>
 </li>
-<li><p>Добавляющие глобальные объекты: директивы/фильтры/переходы и т.д., например <a href="https://github.com/vuejs/vue-touch" target="_blank" rel="external">vue-touch</a></p>
+<li><p>Добавляющие глобальные объекты: директивы/фильтры/переходы и т.д., например <a href="https://github.com/vuejs/vue-touch" target="_blank" rel="noopener">vue-touch</a></p>
 </li>
-<li><p>Добавляющие опции компонентов посредством глобальной примеси, например <a href="https://github.com/vuejs/vue-router" target="_blank" rel="external">vue-router</a></p>
+<li><p>Добавляющие опции компонентов посредством глобальной примеси, например <a href="https://github.com/vuejs/vue-router" target="_blank" rel="noopener">vue-router</a></p>
 </li>
 <li><p>Добавляющие методы экземпляра Vue через Vue.prototype.</p>
 </li>
-<li><p>Библиотеки, предоставляющие собственные API, комбинируя вышеперечисленные возможности, например <a href="https://github.com/vuejs/vue-router" target="_blank" rel="external">Vue-router</a></p>
+<li><p>Библиотеки, предоставляющие собственные API, комбинируя вышеперечисленные возможности, например <a href="https://github.com/vuejs/vue-router" target="_blank" rel="noopener">Vue-router</a></p>
 </li>
 </ol>
 <p>Плагин Vue.js должен содержать метод <code>install</code>. Метод будет вызван с конструктором <code>Vue</code> в качестве первого аргумента, и, возможно, с дополнительными опциями:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">MyPlugin.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue, options</span>) </span>&#123;</div><div class="line">  <span class="comment">// 1. добавление глобального метода или свойства</span></div><div class="line">  Vue.myGlobalMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// некоторая логика ...</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// 2. добавление глобального объекта</span></div><div class="line">  Vue.directive(<span class="string">'my-directive'</span>, &#123;</div><div class="line">    bind (el, binding, vnode, oldVnode) &#123;</div><div class="line">      <span class="comment">// некоторая логика ...</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">  &#125;)</div><div class="line"></div><div class="line">  <span class="comment">// 3. добавление опций компонентов</span></div><div class="line">  Vue.mixin(&#123;</div><div class="line">    created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">// некоторая логика ...</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">  &#125;)</div><div class="line"></div><div class="line">  <span class="comment">// 4. добавление метода экземпляра</span></div><div class="line">  Vue.prototype.$myMethod = <span class="function"><span class="keyword">function</span> (<span class="params">methodOptions</span>) </span>&#123;</div><div class="line">    <span class="comment">// некоторая логика ...</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">MyPlugin.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue, options</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 1. добавление глобального метода или свойства</span></span><br><span class="line">  Vue.myGlobalMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// некоторая логика ...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. добавление глобального объекта</span></span><br><span class="line">  Vue.directive(<span class="string">'my-directive'</span>, &#123;</span><br><span class="line">    bind (el, binding, vnode, oldVnode) &#123;</span><br><span class="line">      <span class="comment">// некоторая логика ...</span></span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. добавление опций компонентов</span></span><br><span class="line">  Vue.mixin(&#123;</span><br><span class="line">    created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// некоторая логика ...</span></span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 4. добавление метода экземпляра</span></span><br><span class="line">  Vue.prototype.$myMethod = <span class="function"><span class="keyword">function</span> (<span class="params">methodOptions</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// некоторая логика ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Использование-плагинов"><a href="#Использование-плагинов" class="headerlink" title="Использование плагинов"></a>Использование плагинов</h2><p>Для использования плагина нужно вызвать глобальный метод <code>Vue.use()</code>:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// вызывает `MyPlugin.install(Vue)`</span></div><div class="line">Vue.use(MyPlugin)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// вызывает `MyPlugin.install(Vue)`</span></span><br><span class="line">Vue.use(MyPlugin)</span><br></pre></td></tr></table></figure>
 <p>При установке плагина можно передать дополнительные параметры:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">Vue.use(MyPlugin, &#123; <span class="attr">someOption</span>: <span class="literal">true</span> &#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.use(MyPlugin, &#123; <span class="attr">someOption</span>: <span class="literal">true</span> &#125;)</span><br></pre></td></tr></table></figure>
 <p><code>Vue.use</code> автоматически предохранит вас от многократной регистрации одного и того же плагина. Вызов <code>Vue.use</code> для одного и того же плагина несколько раз приведёт лишь к однократной его установке.</p>
 <p>Некоторые официальные плагины Vue.js, такие как <code>vue-router</code>, автоматически вызывают <code>Vue.use()</code>, если обнаруживают глобальную переменную <code>Vue</code>. Однако в случае использования инструментов модульного окружения, таких как CommonJS, всегда необходимо вызывать <code>Vue.use()</code> явно:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// При использовании CommonJS посредством Browserify или Webpack</span></div><div class="line"><span class="keyword">var</span> Vue = <span class="built_in">require</span>(<span class="string">'vue'</span>)</div><div class="line"><span class="keyword">var</span> VueRouter = <span class="built_in">require</span>(<span class="string">'vue-router'</span>)</div><div class="line"></div><div class="line"><span class="comment">// Не забудьте этот вызов!</span></div><div class="line">Vue.use(VueRouter)</div></pre></td></tr></table></figure>
-<p>Обратите внимание на <a href="https://github.com/vuejs/awesome-vue#components--libraries" target="_blank" rel="external">awesome-vue</a> — огромную коллекцию плагинов и библиотек от сообщества Vue.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// При использовании CommonJS посредством Browserify или Webpack</span></span><br><span class="line"><span class="keyword">var</span> Vue = <span class="built_in">require</span>(<span class="string">'vue'</span>)</span><br><span class="line"><span class="keyword">var</span> VueRouter = <span class="built_in">require</span>(<span class="string">'vue-router'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Не забудьте этот вызов!</span></span><br><span class="line">Vue.use(VueRouter)</span><br></pre></td></tr></table></figure>
+<p>Обратите внимание на <a href="https://github.com/vuejs/awesome-vue#components--libraries" target="_blank" rel="noopener">awesome-vue</a> — огромную коллекцию плагинов и библиотек от сообщества Vue.</p>
 
     
       <div class="guide-links">
