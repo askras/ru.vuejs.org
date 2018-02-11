@@ -155,7 +155,7 @@
 </li>
 
 <li class="nav-dropdown-container language">
-  <a class="nav-link">Translations</a><span class="arrow"></span>
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/guide/filters.html" class="nav-link" target="_blank">English</a></li>
     <li><a href="https://cn.vuejs.org/v2/guide/filters.html" class="nav-link" target="_blank">中文</a></li>
@@ -248,7 +248,7 @@
 </li>
 
 <li class="nav-dropdown-container language">
-  <a class="nav-link">Translations</a><span class="arrow"></span>
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/guide/filters.html" class="nav-link" target="_blank">English</a></li>
     <li><a href="https://cn.vuejs.org/v2/guide/filters.html" class="nav-link" target="_blank">中文</a></li>
@@ -263,28 +263,35 @@
 
         </ul>
         <div class="list">
-            <div class="main-sponsor">
-                <span>Платиновые спонсоры</span>
-                <div>
-                  <a href="https://stdlib.com" target="_blank" class="logo">
-                    <img src="/images/stdlib.png">
-                  </a>
-                  <a href="http://tooltwist.com/" target="_blank" class="logo">
-                    <img src="/images/tooltwist.png">
-                  </a>
-                  <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
-                    <img src="/images/vueschool.png">
-                  </a>
-                  <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
-                    <img src="/images/datacamp.png">
-                  </a>
-                </div>
-            </div>
-            <a class="become-backer" href="/support-vuejs">
-                Поддержите Vue.js
-            </a>
+            <div id="sidebar-sponsors">
+  <div class="main-sponsor">
+    <span>Cпонсоры</span>
+    <div>
+      <a href="https://stdlib.com" target="_blank" class="logo">
+        <img src="/images/stdlib.png">
+      </a>
+      <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+        <img src="/images/bit.png" style="width:45px;height:45px;">
+      </a>
+      <a href="http://tooltwist.com/" target="_blank" class="logo">
+        <img src="/images/tooltwist.png">
+      </a>
+      <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+        <img src="/images/vueschool.png">
+      </a>
+      <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+        <img src="/images/datacamp.png">
+      </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+      Поддержите Vue.js
+  </a>
+</div>
+
             <h2>
-                Guide
+                
+                Руководство
                 
                     <select class="version-select">
                         <option value="SELF" selected>2.x</option>
@@ -857,8 +864,8 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- mustache --&gt;</span></span><br><span class="line">&#123;&#123; message | capitalize &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- v-bind --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:id</span>=<span class="string">"rawId | formatId"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Вы можете определить локальные фильтры в опциях компонента:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">filters: &#123;</span><br><span class="line">  capitalize: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!value) <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line">    value = value.toString()</span><br><span class="line">    <span class="keyword">return</span> value.charAt(<span class="number">0</span>).toUpperCase() + value.slice(<span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>или определить фильтр глобально:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.filter(<span class="string">'capitalize'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!value) <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line">  value = value.toString()</span><br><span class="line">  <span class="keyword">return</span> value.charAt(<span class="number">0</span>).toUpperCase() + value.slice(<span class="number">1</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>или определить фильтр глобально перед созданием экземпляра Vue:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.filter(<span class="string">'capitalize'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!value) <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line">  value = value.toString()</span><br><span class="line">  <span class="keyword">return</span> value.charAt(<span class="number">0</span>).toUpperCase() + value.slice(<span class="number">1</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>Ниже приведён пример использования нашего фильтра <code>capitalize</code>:</p>
 
 <div id="example_1" class="demo">
@@ -917,7 +924,7 @@
 
       Обнаружили ошибку или хотите добавить что-то своё в документацию?
       <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/filters.md" target="_blank">
-        Отредактируйте эту страницу на Github!
+        Отредактируйте эту страницу на GitHub!
       </a>
     </div>
 </div>

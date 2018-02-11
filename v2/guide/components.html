@@ -155,7 +155,7 @@
 </li>
 
 <li class="nav-dropdown-container language">
-  <a class="nav-link">Translations</a><span class="arrow"></span>
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/guide/components.html" class="nav-link" target="_blank">English</a></li>
     <li><a href="https://cn.vuejs.org/v2/guide/components.html" class="nav-link" target="_blank">中文</a></li>
@@ -248,7 +248,7 @@
 </li>
 
 <li class="nav-dropdown-container language">
-  <a class="nav-link">Translations</a><span class="arrow"></span>
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/guide/components.html" class="nav-link" target="_blank">English</a></li>
     <li><a href="https://cn.vuejs.org/v2/guide/components.html" class="nav-link" target="_blank">中文</a></li>
@@ -263,28 +263,35 @@
 
         </ul>
         <div class="list">
-            <div class="main-sponsor">
-                <span>Платиновые спонсоры</span>
-                <div>
-                  <a href="https://stdlib.com" target="_blank" class="logo">
-                    <img src="/images/stdlib.png">
-                  </a>
-                  <a href="http://tooltwist.com/" target="_blank" class="logo">
-                    <img src="/images/tooltwist.png">
-                  </a>
-                  <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
-                    <img src="/images/vueschool.png">
-                  </a>
-                  <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
-                    <img src="/images/datacamp.png">
-                  </a>
-                </div>
-            </div>
-            <a class="become-backer" href="/support-vuejs">
-                Поддержите Vue.js
-            </a>
+            <div id="sidebar-sponsors">
+  <div class="main-sponsor">
+    <span>Cпонсоры</span>
+    <div>
+      <a href="https://stdlib.com" target="_blank" class="logo">
+        <img src="/images/stdlib.png">
+      </a>
+      <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+        <img src="/images/bit.png" style="width:45px;height:45px;">
+      </a>
+      <a href="http://tooltwist.com/" target="_blank" class="logo">
+        <img src="/images/tooltwist.png">
+      </a>
+      <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+        <img src="/images/vueschool.png">
+      </a>
+      <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+        <img src="/images/datacamp.png">
+      </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+      Поддержите Vue.js
+  </a>
+</div>
+
             <h2>
-                Guide
+                
+                Руководство
                 
                     <select class="version-select">
                         <option value="SELF" selected>2.x</option>
@@ -1322,7 +1329,7 @@ new Vue({
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Failed to mount component: template or render function not defined.</span><br></pre></td></tr></table></figure>
 <p>Чтобы объяснить это явление, давайте назовём наши компоненты A и B. Модульный сборщик видит, что ему нужен компонент A, но A сперва нужен B, но B нужен A, и т.д. Сборщик застревает в цикле, не зная как полностью разрешить оба компонента. Чтобы это исправить, нам нужно указать сборщику точку, в которой он сможет сказать: “Рано или поздно для разрешения A нужно разрешить B, но нет необходимости разрешать B прямо сейчас.”</p>
 <p>Для нашего случая, мы сделаем такой точкой компонент <code>tree-folder</code>. Мы знаем, что компонент-потомок, порождающий парадокс — это <code>tree-folder-contents</code>. Поэтому мы не будем его регистрировать, пока не наступит событие жизненного цикла <code>beforeCreate</code>.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">beforeCreate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.$options.components.TreeFolderContents = <span class="built_in">require</span>(<span class="string">'./tree-folder-contents.vue'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">beforeCreate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.$options.components.TreeFolderContents = <span class="built_in">require</span>(<span class="string">'./tree-folder-contents.vue'</span>).default</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Проблема решена!</p>
 <h3 id="Inline-шаблоны"><a href="#Inline-шаблоны" class="headerlink" title="Inline-шаблоны"></a>Inline-шаблоны</h3><p>Если у компонента-потомка присутствует специальный атрибут <code>inline-template</code>, содержимое элемента будет использовано не для распределения контента, а в качестве шаблона этого компонента. Это позволяет более гибко использовать шаблоны.</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">my-component</span> <span class="attr">inline-template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Этот шаблон будет скомпилирован в области видимости компонента-потомка.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Доступа к данным родителя нет.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1360,7 +1367,7 @@ new Vue({
 
       Обнаружили ошибку или хотите добавить что-то своё в документацию?
       <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/guide/components.md" target="_blank">
-        Отредактируйте эту страницу на Github!
+        Отредактируйте эту страницу на GitHub!
       </a>
     </div>
 </div>

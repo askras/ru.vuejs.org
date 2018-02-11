@@ -155,7 +155,7 @@
 </li>
 
 <li class="nav-dropdown-container language">
-  <a class="nav-link">Translations</a><span class="arrow"></span>
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/api/index.html" class="nav-link" target="_blank">English</a></li>
     <li><a href="https://cn.vuejs.org/v2/api/index.html" class="nav-link" target="_blank">中文</a></li>
@@ -248,7 +248,7 @@
 </li>
 
 <li class="nav-dropdown-container language">
-  <a class="nav-link">Translations</a><span class="arrow"></span>
+  <a class="nav-link">Переводы</a><span class="arrow"></span>
   <ul class="nav-dropdown">
     <li><a href="https://vuejs.org/v2/api/index.html" class="nav-link" target="_blank">English</a></li>
     <li><a href="https://cn.vuejs.org/v2/api/index.html" class="nav-link" target="_blank">中文</a></li>
@@ -263,27 +263,34 @@
 
         </ul>
         <div class="list">
-            <div class="main-sponsor">
-                <span>Платиновые спонсоры</span>
-                <div>
-                  <a href="https://stdlib.com" target="_blank" class="logo">
-                    <img src="/images/stdlib.png">
-                  </a>
-                  <a href="http://tooltwist.com/" target="_blank" class="logo">
-                    <img src="/images/tooltwist.png">
-                  </a>
-                  <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
-                    <img src="/images/vueschool.png">
-                  </a>
-                  <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
-                    <img src="/images/datacamp.png">
-                  </a>
-                </div>
-            </div>
-            <a class="become-backer" href="/support-vuejs">
-                Поддержите Vue.js
-            </a>
+            <div id="sidebar-sponsors">
+  <div class="main-sponsor">
+    <span>Cпонсоры</span>
+    <div>
+      <a href="https://stdlib.com" target="_blank" class="logo">
+        <img src="/images/stdlib.png">
+      </a>
+      <a href="https://www.bitsrc.io/?utm_source=vue&utm_medium=vue&utm_campaign=vue&utm_term=vue&utm_content=vue" target="_blank" class="logo">
+        <img src="/images/bit.png" style="width:45px;height:45px;">
+      </a>
+      <a href="http://tooltwist.com/" target="_blank" class="logo">
+        <img src="/images/tooltwist.png">
+      </a>
+      <a href="https://vueschool.io/?utm_source=Vuejs.org&utm_medium=Banner&utm_campaign=Sponsored%20Banner&utm_content=V1" target="_blank" class="logo">
+        <img src="/images/vueschool.png">
+      </a>
+      <a href="https://www.datacamp.com/careers?utm_source=vuejs&utm_medium=sidebar" target="_blank" class="logo">
+        <img src="/images/datacamp.png">
+      </a>
+    </div>
+  </div>
+  <a class="become-backer" href="/support-vuejs">
+      Поддержите Vue.js
+  </a>
+</div>
+
             <h2>
+                
                 API
                 
                     <select class="version-select">
@@ -524,6 +531,7 @@
 <li><p><strong>Использование:</strong></p>
 <p>Регистрирует новый глобальный фильтр или возвращает уже зарегистрированный.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// регистрируем фильтр:</span></span><br><span class="line">Vue.filter(<span class="string">'my-filter'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// возвращаем обработанное значение</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// получаем фильтр, если он зарегистрирован:</span></span><br><span class="line"><span class="keyword">var</span> myFilter = Vue.filter(<span class="string">'my-filter'</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>См. также:</strong> <a href="../guide/filters.html">Фильтры</a></p>
 </li>
 </ul>
 <h3 id="Vue-component-id-definition"><a href="#Vue-component-id-definition" class="headerlink" title="Vue.component( id, [definition] )"></a>Vue.component( id, [definition] )</h3><ul>
@@ -781,9 +789,8 @@
 <li><p><strong>Тип:</strong> <code>Function</code></p>
 </li>
 <li><p><strong>Подробности:</strong></p>
-<p>Вызывается при изменении данных, до повторного рендеринга и обновления виртуального DOM-а.</p>
-<p>В этом хуке можно дополнительно изменять состояние, и это не вызовет нового повторного рендеринга.</p>
-<p><strong>При рендеринге на стороне сервера этот хук не вызывается.</strong></p>
+<p>Вызывается при изменении данных перед тем, как DOM будет обновляться. Это хорошее место для получения доступа к существующему DOM перед обновлением, например чтобы удалить добавленные слушатели событий.</p>
+<p><strong>Этот хук не вызывается во время рендеринга на стороне сервера, потому что на сервере выполняется только начальный рендеринг.</strong></p>
 </li>
 <li><p><strong>См. также:</strong> <a href="../guide/instance.html#Диаграмма-жизненного-цикла">Диаграмма жизненного цикла</a></p>
 </li>
@@ -1819,7 +1826,7 @@
 
       Обнаружили ошибку или хотите добавить что-то своё в документацию?
       <a href="https://github.com/translation-gang/ru.vuejs.org/blob/master/src/v2/api/index.md" target="_blank">
-        Отредактируйте эту страницу на Github!
+        Отредактируйте эту страницу на GitHub!
       </a>
     </div>
 </div>
