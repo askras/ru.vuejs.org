@@ -987,7 +987,7 @@
 <p>Примечание: в версиях до 2.3.0 опция <code>props</code> необходима, если вы хотите использовать входные параметры в функциональном компоненте. С версии 2.3.0+ вы можете опустить опцию <code>props</code> и все атрибуты, найденные на ноде компонента, будут неявно извлечены в качестве входных данных.</p>
 </blockquote>
 <p>С версии 2.5.0+, если вы используете <a href="single-file-components.html">однофайловые компоненты</a>, вы можете объявить функциональные компоненты основанные на шаблоне таким образом:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;template functional&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">functional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Всё необходимое компоненту передаётся через <code>context</code> — объект, содержащий следующие поля:</p>
 <ul>
 <li><code>props</code>: Объект, содержащий переданные входные параметры</li>
